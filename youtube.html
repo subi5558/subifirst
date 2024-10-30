@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> youtube by subijen</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+      p{
+        font-family:"Roboto",Arial;
+        font-weight: 500;
+        
+
+      }
+      body{
+        margin: 0;
+        padding-top: 60px;
+        padding-left: 100px;
+        padding-right:40px;
+        padding-bottom: 1000px;
+      }
+      
+      
+      
+      .search-bar::placeholder{
+        font-family: "Roboto",arial;
+        font-size: 20px;
+        padding-left: 10px;
+      }
+     
+      
+      
+      .image{
+        width:100%;
+        
+        
+       
+      }
+      .header{
+       display: flex;
+       height:90px;
+       justify-content: space-between;
+       position: fixed;
+       top: 0;
+       left: 0;
+       right: 0;
+       background-color: white;
+       border-bottom-width: 1px;
+       border-bottom-style: solid;
+       border-bottom-color: rgb(228, 228, 228);
+       z-index: 1;
+      }
+      
+      
+      .v-info{
+        width:350px;
+        padding-left: 0px;
+        margin-left: 0;
+        
+       
+        
+       }
+      .dp{
+      
+        vertical-align: top;
+      }
+      .chpic{
+        width:40px;
+        border-radius:50px;
+      }
+      .v-des{
+        display:grid;
+        grid-template-columns: 70px 1fr;
+        margin-top: 10px;
+      }
+      
+
+      
+      .v-d{
+        margin-top: 0;
+        font-size: 20px;
+        font-family: "Roboto",Arial;
+        padding-left: 0;
+      
+      }
+      .v-a{
+        margin-bottom:0px;
+        font-size:15px;
+        color:rgb(96,96,96);
+      }
+      .v-s{
+        margin-top:0px;
+        color:rgb(96,96,96);
+        font-size:15px;
+      }
+      .middle-section{
+        flex: 1;
+        max-width:500px;
+        display: flex;
+        margin-left: 70px;
+        margin-right: 35px;
+        align-items:center;
+        position:relative;
+      }
+      .tooltip{
+        position: absolute;
+        background-color: gray;
+        color:white;
+        font-size: 12px;
+        padding-left: 10px;
+        padding-right:10px;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        bottom:-30px;
+        opacity: 0;
+        transition: opacity 0.15s;
+        pointer-events: none;
+
+
+      }
+      .search-button:hover .tooltip,
+      .voice-button:hover .tooltip,
+      .upload-icon-container:hover .tooltip,
+      .apps-icon-container:hover .tooltip,
+      .notification-container:hover .tooltip{
+        opacity:1;
+       
+      }
+     
+      .search-bar {
+        flex: 1;
+        height: 36px;
+        padding-left: 10px;
+        font-size: 16px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(192, 192, 192);
+        border-radius: 2px;
+        box-shadow: inset 1px 2px 3px rgba(0, 0, 0, 0.05);
+        width: 0;
+      }
+      .search-button {
+       height: 40px;
+       width: 66px;
+       background-color: rgb(240, 240, 240);
+       border-width: 1px;
+       border-style: solid;
+       border-color: rgb(192, 192, 192);
+       margin-left: -2px;
+       margin-right: 10px;
+       cursor: pointer;
+       position:relative;
+      
+
+      
+      }
+      .search-icon{
+        height: 25px;
+        margin-top:4px;
+       
+        
+      }
+        
+      .voice-button{
+        height:40px;
+        width:40px;
+        border-radius:20px;
+        border:none;
+        background-color: rgb(245,245,245);
+        position: relative;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        white-space: nowrap;
+        
+
+      }
+      .voice{
+        height:24px;
+        margin-top: 4px;
+      }
+      .first-section{
+       width:150px;
+       align-items: center;
+       display: flex;
+       
+      }
+      .ham-menu{
+        height: 25px;
+        margin-left: 24px;
+        margin-right: 24px;
+        
+      }
+      .youtube-logo{
+        height:25px;
+        
+        
+      
+      }
+      .last-section{
+      width:200px;
+      justify-content: space-between;
+      display:flex;
+      align-items:center;
+      border-radius:16px;
+      margin-right:20px;
+      position:relative;
+      }
+      .upload-icon{
+        height: 24px;
+        position:relative;
+        cursor:pointer;
+      }
+      .upload-icon-container{
+        position:relative;
+      }
+      .apps-icon-container{
+        position:relative;
+        white-space: nowrap;
+        display:flex;
+        justify-content: center;
+
+      }
+      .notification-container{
+        position:relative;
+        cursor: pointer;
+      }
+      .apps-icon{
+        height:24px;
+        cursor: pointer;
+      }
+      .notification-icon{
+        height:24px;
+      }
+      .ch-dp{
+        height:32px;
+        border-radius:16px;
+      
+      }
+
+      
+      .video-arrangment{
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: 16px;
+        row-gap: 40px;
+        margin-top:40px;
+      }
+      .thumbnail-row{
+        position: relative;
+      }
+      .v-time{
+        background-color: black;
+        color:white;
+        position: absolute;
+        right:5px;
+        bottom:8px;
+        font-family: "roboto",arial;
+        font-size: 12px; 
+        font-weight: 500;
+        font-style: bold;
+        border-radius:2px;
+        padding-left: 4px;
+        padding-bottom: 4px;
+        padding-right: 4px;
+        padding-top:4px;
+
+      }     
+      .n-contain{
+        position: relative;
+      }
+      .n-count{
+        position:absolute;
+        background-color: rgb(200,0,0);
+        color:white;
+        border-radius:10px;
+        padding-left:5px;
+        padding-right: 5px;
+        padding-top:2px;
+        padding-bottom:2px;
+        font-family: "roboto",arial;
+        font-size: 11px;
+        font-weight: 500;
+        top:-2px;
+        right:-5px;
+        
+      }
+      .sidebar{
+        position: fixed;
+        left:0;
+        bottom:0;
+        top:55px;
+        background-color: white;
+        width:72px;
+        z-index:2;
+        padding-top:20px;
+      }
+      .sidebar-link{
+        height:80px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        flex-direction: column;
+      }
+      .sidebar-link:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+.sidebar-link img {
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+.sidebar-link div {
+  font-family: Roboto, Arial;
+  font-size: 10px;
+}
+      
+
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="first-section">
+        
+          <img  class="ham-menu"src="hamburger-menu.svg">
+        
+      
+          <img class="youtube-logo" src="youtube-logo.svg">
+        
+        
+      </div>
+      <div class="middle-section">
+        <input class="search-bar"  type="text" placeholder="Search">
+        <button class="search-button">
+          <img class="search-icon" src="search.svg">
+          <div class="tooltip"> search</div>
+        </button>
+        
+        <button class="voice-button">
+          <img  class="voice" src="voice-search-icon.svg">
+          <div class="tooltip"> search with your voice </div>
+        </button>
+      </div>
+      <div class="last-section">
+        <div class="upload-icon-container"><img class="upload-icon" src="upload.svg">
+        <div class="tooltip">
+          create
+        </div>
+        </div>
+        <div class="apps-icon-container"><img class="apps-icon" src="youtube-apps.svg">
+        <div class="tooltip">youtube apps</div></div>
+        <div class="notification-container">
+        <div class="n-contain"><img class="notification-icon" src="notifications.svg">
+          <div class="tooltip"> notification</div></div>
+        <div class="n-count">3</div>
+      </div>
+        <img class="ch-dp" src="my-channel.jpeg">
+      </div>
+    </div>
+    <div class="sidebar">
+      <div class="sidebar-link">
+        <img src="home.svg">
+        <div>Home</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="explore.svg">
+        <div>Explore</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="subscriptions.svg">
+        <div>Subscriptions</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="originals.svg">
+        <div>Originals</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="youtube-music.svg">
+        <div>YouTube Music</div>
+      </div>
+      <div class="sidebar-link">
+        <img src="library.svg">
+        <div>Library</div>
+      </div>
+    </div>
+    </div>
+    <div class="video-arrangment">
+      <div class="v-p">
+        <div class="thumbnail-row">
+          <img class="image" src="thumbnail-1.webp">
+          <div class="v-time"> 14:20</div>
+        </div>
+        <div class="v-des" >
+          <div class="dp">
+            <img class="chpic" src="channel-1.jpeg">
+          </div>
+           <div class="v-info">
+            <p class="v-d">
+            Talking Tech and AI with Google CEO Sundar Pichai!
+            </p>
+            <p class="v-a">
+            Marques Brownlee
+            </p>
+            <p class="v-s">
+            3.4M views · 6 months ago
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="v-2">
+        <div class="thumbnail-row">
+          <img class="image" src="thumbnail-2.webp">
+          <div class="v-time"> 8:22</div>
+        </div>
+        <div class="v-des"> 
+          <div class="dp"><img class="chpic" src="channel-2.jpeg"></div>
+          <div class="v-info">
+            <p class="v-d">
+            Try not to laugh challenge #9
+          </p>
+          <p class="v-a">
+            Markiplier
+          </p>
+          <p class="v-s">
+            19M views · 4 years ago
+          </p>
+          </div>
+        </div>
+        </div>
+        <div class="v-3">     
+        <div class="thumbnail-row">
+          <img class="image" src="thumbnail-3.webp">
+          <div class="v-time"> 9:13</div>
+        </div>
+        <div class="v-des" >
+          <div class="dp">
+            <img class="chpic" src="channel-3.jpeg">
+          </div>
+           <div class="v-info">
+            <p class="v-d">
+            Crazy Tik Toks Taken Moments Before DISASTER
+            </p>
+            <p class="v-a">
+              SSSniperWolf
+            </p>
+            <p class="v-s">
+              12M views · 1 year ago
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="v-4">
+        <div class="thumbnail-row">
+          <img class="image" src="thumbnail-4.webp">
+          <div class="v-time"> 22:09</div>
+        </div>
+        <div class="v-des"> 
+          <div class="dp"><img class="chpic" src="channel-4.jpeg"></div>
+          <div class="v-info">
+            <p class="v-d">
+            The Simplest Math Problem No One Can Solve - Collatz Conjecture
+          </p>
+          <p class="v-a">
+            Veritasium
+          </p>
+          <p class="v-s">
+            18M views · 4 months ago
+          </p>
+          </div>
+        </div>
+        </div>
+        <div class="v-5">
+          <div class="thumbnail-row">
+            <img class="image" src="thumbnail-5.webp">
+            <div class="v-time"> 11:17</div>
+          </div>
+          <div class="v-des"> 
+            <div class="dp"><img class="chpic" src="channel-5.jpeg"></div>
+            <div class="v-info">
+              <p class="v-d">
+                Kadane's Algorithm to Maximum Sum Subarray Problem
+            </p>
+            <p class="v-a">
+              CS Dojo
+            </p>
+            <p class="v-s">
+              519K views · 5 years ago
+            </p>
+            </div>
+          </div>
+          </div>
+          <div class="v-6">
+            <div class="thumbnail-row">
+              <img class="image" src="thumbnail-6.webp">
+              <div class="v-time"> 19:59</div>
+            </div>
+            <div class="v-des"> 
+              <div class="dp"><img class="chpic" src="channel-6.jpeg"></div>
+              <div class="v-info">
+                <p class="v-d">
+                  Anything You Can Fit In The Circle I’ll Pay For
+                </p>
+              <p class="v-a">
+                MrBeast
+              </p>
+              <p class="v-s">
+                141M views · 1 year ago
+              </p>
+              </div>
+            </div>
+            </div>
+    
+    </div>
+    
+    
+   
+  </body>
+</html>
